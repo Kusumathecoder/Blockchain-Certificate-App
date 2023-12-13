@@ -1,0 +1,52 @@
+{
+	"name": "certi-app",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@nomicfoundation/hardhat-toolbox": "^4.0.0",
+		"@testing-library/jest-dom": "^5.17.0",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"emailjs": "^4.0.3",
+		"emailjs-com": "^3.2.0",
+		"firebase": "^10.7.1",
+		"hardhat": "^2.19.2",
+		"ipfs": "^0.66.1",
+		"minireset.css": "^0.0.7",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-pdf": "^7.6.0",
+		"react-router-dom": "^6.20.1",
+		"react-scripts": "5.0.1",
+		"web-vitals": "^2.1.4",
+		"web3": "^4.3.0",
+		"buffer": "^6.0.3",
+		"process": "^0.11.10",
+		"stream-browserify": "^3.0.0",
+		"react-app-rewired": "^2.2.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
