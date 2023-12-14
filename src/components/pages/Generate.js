@@ -97,6 +97,7 @@ function Generate() {
 			storePdfHash(pdf_hash);
 			//calling function to add certId and ipfs hash to Certificates Collection
 			addDataToCollection(event);
+			sendEmail(event);
 		} catch (error) {
 			console.log("error in uploading files...", error);
 		}
@@ -116,6 +117,31 @@ function Generate() {
 			cert_id: certid,
 			cert_hash: pdf_hash,
 		});
+	};
+	// function to send email to recipient
+	const sendEmail = async (event) => {
+		event.preventDefault();
+		console.log("templete prams:", certid, emailId);
+		var templateParams = {
+			email: emailId,
+			certificate_id: certid,
+			link: `https://gateway.pinata.cloud/ipfs/${pdf_hash}`,
+		};
+		emailjs
+			.send(
+				"service_zo9omvi",
+				"template_epsfpjn",
+				templateParams,
+				"dKz29kUlxgHdg7Tpl"
+			)
+			.then(
+				function (response) {
+					console.log("SUCCESS!", response.status, response.text);
+				},
+				function (error) {
+					console.log("FAILED...", error);
+				}
+			);
 	};
 
 	return (
