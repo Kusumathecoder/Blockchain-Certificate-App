@@ -5,7 +5,6 @@ import { v4 as uuid } from "uuid";
 import "minireset.css";
 import "./Generate.css";
 import Form from "../Form";
-import Preview from "../Preview";
 import { db } from "../../Firebase-config";
 import emailjs from "emailjs-com";
 import { collection, addDoc } from "firebase/firestore";
@@ -36,16 +35,30 @@ function Generate() {
 		const hours = currentDate.getHours();
 		const minutes = currentDate.getMinutes();
 		const seconds = currentDate.getSeconds();
+		const imageUrl = "certificate.jpeg";
 
 		// Format the date and time
 		const formattedDate = `${year}-${month}-${day}`;
 		const formattedTime = `${hours}:${minutes}:${seconds}`;
 		const doc = new jsPDF();
-		doc.text(
-			`Certificate ID: ${ID} \n Username: ${formData.name} \n Course: ${formData.course} \n Date: ${formattedDate} \n Time: ${formattedTime}`,
-			10,
-			10
-		);
+		doc.setFontSize(20);
+		doc.rect(5, 5, 200, 290);
+		doc.setTextColor(0, 128, 255);
+		doc.setFontSize(30);
+		doc.text(`BlockChain Generated Certificate`, 30, 40);
+		doc.text(`---------------------------------------------`, 30, 60);
+		doc.setFontSize(30);
+		doc.text(`Certificate ID: ${ID}`, 40, 100);
+		doc.text(`-----------------------`, 40, 110);
+		doc.setFontSize(30);
+		doc.text(`Username: ${formData.name}`, 40, 140);
+		doc.text(`-----------------------`, 40, 150);
+		doc.setFontSize(30);
+		doc.text(`Course: ${formData.course}`, 40, 180);
+		doc.text(`---------------------------------------------`, 30, 250);
+		doc.setFontSize(20);
+		doc.text(`Date: ${formattedDate}`, 80, 270);
+		doc.text(`Time: ${formattedTime}`, 80, 280);
 		setIsLoading(false);
 		doc.save(ID + ".pdf");
 	}
@@ -189,7 +202,7 @@ function Generate() {
 					<form className="g1-form">
 						<div>
 							<label className="g1-label">
-								Enter Downloaded Certificate
+								Upload Generated Certificate
 							</label>
 							<input
 								className="g1-input1"
