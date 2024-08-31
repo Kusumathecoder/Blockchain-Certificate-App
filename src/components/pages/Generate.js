@@ -89,8 +89,9 @@ function Generate() {
 		init();
 		console.log("uploading to ipfs");
 		try {
-			const pinataApiKey = "KEY";
-			const pinataApiSecret ="KEY";
+			const pinataApiKey = "9bd56e3bb0f57181591d";
+			const pinataApiSecret =
+				"96bd936ee2a4550e43d5ed2ca34f7e94350441937d1a2df275cb77bd79226c1a";
 			const apiUrl = "https://api.pinata.cloud/pinning/pinFileToIPFS";
 			const formData = new FormData();
 			formData.append("file", buffer);
